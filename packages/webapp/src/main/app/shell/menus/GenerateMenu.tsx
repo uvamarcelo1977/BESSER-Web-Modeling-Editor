@@ -25,6 +25,7 @@ import {
   type LucideIcon,
   Network,
   Server,
+  Sigma,
   Workflow,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -64,6 +65,7 @@ const GROUP_ICONS: Record<string, LucideIcon> = {
   Testing: FlaskConical,
   Schema: FileJson,
   Data: Braces,
+  'Formal Methods': Sigma,
   PyTorch: Brain,
   TensorFlow: Brain,
 };
@@ -89,6 +91,7 @@ const GENERATOR_ICONS: Partial<Record<GeneratorType, LucideIcon>> = {
   bpmn: Workflow,
   pytorch: Layers,
   tensorflow: Layers,
+  alloy: Sigma,
 };
 
 const renderGeneratorMenuEntry = (
