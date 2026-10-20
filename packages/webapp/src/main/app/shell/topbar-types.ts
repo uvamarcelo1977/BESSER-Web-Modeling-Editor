@@ -33,6 +33,8 @@ export interface WorkspaceTopBarProps {
   onOpenProjectPreview: () => void;
   onGenerate: (type: GeneratorType, config?: Record<string, any>) => void;
   onQualityCheck: () => Promise<QualityCheckResult>;
+  /** When set, the quality check becomes a menu offering this semantic check too. */
+  onSemanticCheck?: () => Promise<void>;
   qualityCheckState?: QualityCheckState;
   showAgentVariantSelector?: boolean;
   agentVariantOptions?: AgentVariantOption[];

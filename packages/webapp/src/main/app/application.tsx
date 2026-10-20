@@ -140,6 +140,7 @@ function AppContentInner() {
     handleGenerateRequest,
     handleAssistantGenerate,
     handleQualityCheck,
+    handleSemanticCheck,
     configState,
     isLocalEnvironment,
   } = useGeneratorExecution(editor);
@@ -166,6 +167,7 @@ function AppContentInner() {
         onExportProject={handleExport}
         onGenerate={(type, config) => handleGenerateRequest(type, config)}
         onQualityCheck={() => handleQualityCheck()}
+        onSemanticCheck={handleSemanticCheck}
         showQualityCheck={true}
         generatorMode={generatorMenuMode}
         isGenerating={isGenerating}

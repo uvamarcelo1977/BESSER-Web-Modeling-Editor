@@ -135,4 +135,35 @@ describe('TopBarUtilities', () => {
 
     expect(screen.getByRole('button', { name: 'Quality Check: Validated' })).toBeInTheDocument();
   });
+
+  it('offers the syntactic and semantic checks in a menu when a semantic check is given', () => {
+    const onQualityCheck = vi.fn();
+    const onSemanticCheck = vi.fn();
+    withTooltips(
+      <TopBarUtilities
+        showQualityCheck
+        outlineButtonClass=""
+        isDarkTheme={false}
+        isAuthenticated={false}
+        githubLoading={false}
+        hasStarred={false}
+        starLoading={false}
+        onQualityCheck={onQualityCheck}
+        onSemanticCheck={onSemanticCheck}
+        onToggleTheme={vi.fn()}
+        onGitHubLogin={vi.fn()}
+        onGitHubLogout={vi.fn()}
+        onOpenGitHubSidebar={vi.fn()}
+        onToggleStar={vi.fn()}
+      />,
+    );
+
+    openMenu('Quality Check');
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Semantic check' }));
+    openMenu('Quality Check');
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Syntactic check' }));
+
+    expect(onSemanticCheck).toHaveBeenCalledTimes(1);
+    expect(onQualityCheck).toHaveBeenCalledTimes(1);
+  });
 });
